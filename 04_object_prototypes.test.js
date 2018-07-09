@@ -10,6 +10,7 @@ describe("About object prototypes", () => {
 */
 
   String.prototype.capitalize = function() {
+    // was nothing
     let stringArr = [...this];
     stringArr[0] = stringArr[0].toUpperCase();
     const returnString = stringArr.join("");
@@ -33,13 +34,12 @@ describe("About object prototypes", () => {
     this.model = model;
     this.year = year;
     this.miles = miles;
-
-    this.toString = function() {
-      return this.model + " has done " + this.miles + " miles";
-    };
   }
 
   it("should have a toString() function for MyCar", () => {
+    Car.prototype.toString = function() {
+      return this.model + " has done " + this.miles + " miles";
+    }; // was in the Car() function
     const MyCar = new Car("Model T", "1905", "200");
     expect(MyCar.toString()).toBe("Model T has done 200 miles");
   });

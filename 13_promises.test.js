@@ -5,6 +5,17 @@ describe("About promises", () => {
 
 */
 
+  // was
+  // const anAsyncFunction = result => {
+  //   return new Promise((resolve, reject) => {
+  //     if (result) {
+  //       return resolve([0, 1, 2]);
+  //     } else {
+  //       return reject(" Oh no :( ");
+  //     }
+  //   });
+  // };
+
   const anAsyncFunction = result => {
     if (!result) {
       return Promise.reject(" Oh no :( ");
@@ -40,11 +51,24 @@ describe("About promises", () => {
   const addOne = result => result + 1;
 
   function addTwo(num) {
+    // was nothing
     return Promise.resolve(num)
       .then(num => num + 2)
       .then(num => num + 2)
       .then(num => num + 2);
   }
+
+  // was
+  // it("should add up to 6!", done => {
+  //   return Promise.resolve(0)
+  //     .then(num => num + 2)
+  //     .then(num => num + 2)
+  //     .then(num => num + 2)
+  //     .then(function(result) {
+  //       expect(result).toBe(6);
+  //     })
+  //     .then(done);
+  // });
 
   it("should add up to 6!", done => {
     return addTwo(0)
@@ -74,12 +98,40 @@ describe("About promises", () => {
       .then(addOne);
   }
 
+  // was
+  // it("should add to 10 without using a big chain of promises", done => {
+  //   Promise.resolve(0)
+  //     .then(addOne)
+  //     .then(value => {
+  //       return Promise.resolve(value)
+  //         .then(value => {
+  //           return Promise.resolve(value)
+  //             .then(addOne)
+  //             .then(addOne)
+  //             .then(addOne);
+  //         })
+  //         .then(addOne)
+  //         .then(addOne);
+  //     })
+  //     .then(addOne)
+  //     .then(value => {
+  //       return Promise.resolve(value)
+  //         .then(addOne)
+  //         .then(addOne)
+  //         .then(addOne);
+  //     })
+  //     .then(result => {
+  //       expect(result).toBe(10);
+  //     })
+  //     .then(done);
+  // });
+
   it("should add to 10 without using a big chain of promises", done => {
     addTen(0)
       .then(result => {
         expect(result).toBe(10);
       })
-      .then(done);
+      .then(done); // can use a function abstracting the horrific .thens
 
     Promise.resolve(0)
       .then(addOne)
@@ -95,7 +147,7 @@ describe("About promises", () => {
       .then(result => {
         expect(result).toBe(10);
       })
-      .then(done);
+      .then(done); // or just shove all .thens here
   });
 
   /*
@@ -125,6 +177,20 @@ describe("About promises", () => {
     return `Create the plan called ${userName} for plan ID ${id}`;
   };
 
+  // was
+  // it("should get Alices plan", done => {
+  //   return getUser()
+  //     .then(user => {
+  //       return getPlans().then(plans => {
+  //         return subscribe(user.name, plans.id);
+  //       });
+  //     })
+  //     .then(string => {
+  //       expect(string).toBe("Create the plan called Alice for plan ID 4");
+  //       done();
+  //     });
+  // });
+
   it("should get Alice's plan", done => {
     return Promise.all([getUser(), getPlans()])
       .then(results => {
@@ -149,7 +215,7 @@ describe("About promises", () => {
   it("should greet Bob using the spread operator", done => {
     return Promise.all([Promise.resolve("Bob"), Promise.resolve("Miggins")])
       .then(data => {
-        return hey(...data);
+        return hey(...data); // was return hey(data[0], data[1]);
       })
       .then(string => {
         expect(string).toBe("Hey Bob Miggins!");

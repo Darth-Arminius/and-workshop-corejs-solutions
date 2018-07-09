@@ -55,7 +55,7 @@ describe("About objects", () => {
 
     Object.defineProperty(vip, "age", {
       writable: false
-    });
+    }); // was nothing
 
     vip.age = 37;
     expect(vip.name).toBe("Kelly");

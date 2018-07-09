@@ -6,7 +6,7 @@ describe("About this", () => {
 
     const john = { name: "John" };
 
-    const boundedGetName = getName.bind(john);
+    const boundedGetName = getName.bind(john); // was nothing
     expect(boundedGetName()).toBe("John"); // USE bind https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
     expect(getName.call(john)).toEqual("John"); // USE call https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
     expect(getName.apply(john)).toEqual("John"); // USE apply https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
@@ -14,18 +14,20 @@ describe("About this", () => {
 
   it("should set John properties in Person using this", () => {
     function Person() {
+      // was empty
       this.age = 28;
       this.name = "John";
       this.isFine = () => true;
     }
 
     const john = {
+      // was null
       age: null,
       name: null,
       isFine: null
     };
 
-    Person.call(john);
+    Person.call(john); // was nothing
 
     expect(john.age).toBe(28);
     expect(john.name).toEqual("John");
@@ -56,7 +58,7 @@ describe("About this", () => {
       avgScore: null
     };
 
-    leaderBoard.avg.call(anotherleaderBoard);
+    leaderBoard.avg.call(anotherleaderBoard); // was nothing
 
     expect(anotherleaderBoard.avgScore).toBe(9);
   });

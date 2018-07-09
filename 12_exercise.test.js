@@ -65,4 +65,10 @@ describe("Exercise 12 candidate filtering", () => {
     expect(candidates[0].name).toBe("Julian Assange");
     expect(candidates[2].name).toBe("Maria Bianchi");
   });
+
+  it("should return all candidates with no filters", () => {
+    const candidates = filter(data, []);
+
+    expect(candidates.length).toBe(8);
+  });
 });

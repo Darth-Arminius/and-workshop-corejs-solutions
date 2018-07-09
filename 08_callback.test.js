@@ -36,7 +36,7 @@ describe("About Higher Order Functions", function() {
 
   it("should use 'forEach' for simple iteration", function() {
     const numbers = [1, 2, 3];
-    let msg = "";
+    let msg = ""; // was const msg = "";
     const isEven = function(item) {
       msg += item % 2 === 0;
     };

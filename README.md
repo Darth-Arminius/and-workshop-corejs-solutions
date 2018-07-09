@@ -1,7 +1,9 @@
 # and-workshop-corejs-solutions
+
 ## My solutions to the and-workshop-corejs tests
 
 ## Getting started
+
 1 - install or update nodejs to the latest version:
 
 ```
@@ -36,4 +38,10 @@ For the non test files, use nodemon to automatically load the change you (eventu
 
 ```
 nodemon <file>
+```
+
+This will also be used for running the server in exercise 14
+
+```
+nodemon server.js
 ```

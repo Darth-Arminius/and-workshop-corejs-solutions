@@ -96,6 +96,7 @@ describe("About Functions", function() {
 
   it("should return a reversed string", () => {
     function reverse(str) {
+      // was empty
       let strArr = [...str];
       strArr.reverse();
       return strArr.join("");
@@ -106,6 +107,7 @@ describe("About Functions", function() {
 
   it("should return the dog age equivalent of a human age (1 year for Fido = 7 years for you)", () => {
     function puppyCalculator(humanAge) {
+      // was empty
       return Math.ceil(humanAge / 7);
     }
 
@@ -116,6 +118,7 @@ describe("About Functions", function() {
 
   it("should return a string with a defined suffix", () => {
     function addSuffix(str, suffix) {
+      // was empty
       return `${str}${suffix}`;
     }
 

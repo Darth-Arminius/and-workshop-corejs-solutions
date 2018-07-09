@@ -6,6 +6,7 @@ describe("About classes", () => {
 */
 
   class Animal {
+    // was function Animal() with prototype speak() and eat()
     speak() {
       return "meow";
     }
@@ -31,6 +32,7 @@ describe("About classes", () => {
 */
 
   class Kitten extends Animal {
+    // was nothing
     speak() {
       return "kitten meow";
     }
