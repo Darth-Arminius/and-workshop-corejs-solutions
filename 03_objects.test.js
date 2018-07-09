@@ -25,7 +25,7 @@ describe("About objects", () => {
     expect(obj["age"]).toBe("35");
   });
 
-  it("return using computed property names", () => {
+  it("should return using computed property names", () => {
     //RULE: USE computed property names
     const real = "real_";
     const fake = "fake_";

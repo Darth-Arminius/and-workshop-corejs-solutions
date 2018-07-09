@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const file = "./todo-test.txt";
+const file = "./todo.txt";
 
 let stuff = "";
 

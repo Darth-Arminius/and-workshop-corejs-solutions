@@ -1,4 +1,5 @@
-/*
+describe("About closure and scoping", () => {
+  /*
     Questions:
         - Why is it returning 3 for everything!?
         - Why would a curried function work here?
@@ -9,46 +10,47 @@
 
 */
 
-it('should console log a = 2', () => {
-  function test() {
-    console.log(a);
-    console.log(foo());
+  it("should console log a = 2", () => {
+    function test() {
+      console.log(a);
+      console.log(foo());
 
-    var a = 1;
-    function foo() {
-      return 2;
+      var a = 1;
+      function foo() {
+        return 2;
+      }
     }
-  }
 
-  test();
-});
+    test();
+  });
 
-const getFunctions = result => {
-  let funcs = [];
+  const getFunctions = result => {
+    let funcs = [];
 
-  for (let i = 0; i < 3; i++) {
-    funcs[i] = function() {
-      return `I am index ${i}!`;
-    };
-  }
+    for (let i = 0; i < 3; i++) {
+      funcs[i] = function() {
+        return `I am index ${i}!`;
+      };
+    }
 
-  return funcs;
-};
+    return funcs;
+  };
 
-test('First function is 0', () => {
-  const funcs = getFunctions();
+  it("should return index 0 for the first function", () => {
+    const funcs = getFunctions();
 
-  expect(funcs[0]()).toBe('I am index 0!');
-});
+    expect(funcs[0]()).toBe("I am index 0!");
+  });
 
-test('Second function is 1', () => {
-  const funcs = getFunctions();
+  it("should return index 1 for the second function", () => {
+    const funcs = getFunctions();
 
-  expect(funcs[1]()).toBe('I am index 1!');
-});
+    expect(funcs[1]()).toBe("I am index 1!");
+  });
 
-test('Third function is 2', () => {
-  const funcs = getFunctions();
+  it("should return index 2 for the third function", () => {
+    const funcs = getFunctions();
 
-  expect(funcs[2]()).toBe('I am index 2!');
+    expect(funcs[2]()).toBe("I am index 2!");
+  });
 });

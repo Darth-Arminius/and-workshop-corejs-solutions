@@ -25,7 +25,7 @@ describe("About classes", () => {
   /*
 
 	 Task 2) Create a class Kitten, that extends the Animal. Overwriting the previous speak method.
-		The it should fail when you add the extended class, you will need to override the method for the it to pass
+		The test should fail when you add the extended class, you will need to override the method for the it to pass
 	 	Tip: Use extends keyword
 
 */

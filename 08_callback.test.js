@@ -60,7 +60,7 @@ describe("About Higher Order Functions", function() {
     expect(mixedBag.every(isEven)).toBe(false);
   });
 
-  it("should use 'some' to test if any items passes condition", function() {
+  it("should use 'some' to test if any item passes condition", function() {
     //## FIND the right Array function to use on MDN
     const onlyEven = [2, 4, 6];
     const mixedBag = [2, 4, 5, 6];
