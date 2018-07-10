@@ -2,7 +2,12 @@ describe("About Higher Order Functions", function() {
   it("should use 'filter' to return array items that meet a criteria", function() {
     const numbers = [1, 2, 3];
     const odd = numbers.filter(function(x) {
-      return x % 2 !== 0;
+      return x % 2 !== 0; // % modulus/remainder operator, useful for checking if even/odd when used with 2
+      // Note: When using negative numbers the result could be negative
+      // -2 % -2 = -0
+      // -2 %  2 = -0
+      //  2 % -2 =  0
+      //  2 %  2 =  0
     });
 
     expect(odd).toEqual([1, 3]);
@@ -48,7 +53,7 @@ describe("About Higher Order Functions", function() {
   });
 
   it("should use 'every' to test whether all items pass condition", function() {
-    //## FIND the write Array function to use on MDN
+    //## FIND the right Array function to use on MDN
     const onlyEven = [2, 4, 6];
     const mixedBag = [2, 4, 5, 6];
 
@@ -56,7 +61,7 @@ describe("About Higher Order Functions", function() {
       return x % 2 === 0;
     };
 
-    expect(onlyEven.every(isEven)).toBe(true);
+    expect(onlyEven.every(isEven)).toBe(true); // Array.every()
     expect(mixedBag.every(isEven)).toBe(false);
   });
 
@@ -69,7 +74,7 @@ describe("About Higher Order Functions", function() {
       return x % 2 === 0;
     };
 
-    expect(onlyEven.some(isEven)).toBe(true);
+    expect(onlyEven.some(isEven)).toBe(true); // Array.some()
     expect(mixedBag.some(isEven)).toBe(true);
   });
 

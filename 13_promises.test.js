@@ -50,7 +50,7 @@ describe("About promises", () => {
 
   const addOne = result => result + 1;
 
-  function addTwo(num) {
+  function addSix(num) {
     // was nothing
     return Promise.resolve(num)
       .then(num => num + 2)
@@ -71,7 +71,7 @@ describe("About promises", () => {
   // });
 
   it("should add up to 6!", done => {
-    return addTwo(0)
+    return addSix(0)
       .then(function(result) {
         expect(result).toBe(6);
       })
@@ -192,7 +192,7 @@ describe("About promises", () => {
   // });
 
   it("should get Alice's plan", done => {
-    return Promise.all([getUser(), getPlans()])
+    return Promise.all([getUser(), getPlans()]) // combines and resolves all Promises supplied, if any Promise errors then the catch is run
       .then(results => {
         return subscribe(results[0].name, results[1].id);
       })

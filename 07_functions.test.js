@@ -22,7 +22,7 @@ describe("About Functions", function() {
 
     expect(getMessage()).toBe("Outer");
     expect(overrideMessage()).toBe("Inner");
-    expect(message).toBe("Outer");
+    expect(message).toBe("Outer"); // scoping
   });
 
   it("should have lexical scoping", function() {
@@ -34,7 +34,7 @@ describe("About Functions", function() {
       }
       return childfunction();
     }
-    expect(parentfunction()).toBe("local");
+    expect(parentfunction()).toBe("local"); // var variable = "top-level" & parentfunction() -> var variable = "local" & return childfunction() -> return variable ("local")
   });
 
   it("should use lexical scoping to synthesise functions", function() {
@@ -45,8 +45,8 @@ describe("About Functions", function() {
       return newFunction;
     }
 
-    var mysteryFunction3 = makeMysteryFunction(3);
-    var mysteryFunction5 = makeMysteryFunction(5);
+    var mysteryFunction3 = makeMysteryFunction(3); // same as var mysteryFunction3 = function doMysteriousThing(param) { return 3 + param };
+    var mysteryFunction5 = makeMysteryFunction(5); // same as var mysteryFunction5 = function doMysteriousThing(param) { return 5 + param };
 
     expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23);
   });
@@ -97,9 +97,9 @@ describe("About Functions", function() {
   it("should return a reversed string", () => {
     function reverse(str) {
       // was empty
-      let strArr = [...str];
-      strArr.reverse();
-      return strArr.join("");
+      let strArr = [...str]; // spreading the string into a new char array
+      strArr.reverse(); // reversing said char array
+      return strArr.join(""); // joining up the char array back into a string and returning it
     }
 
     expect(reverse("hello")).toEqual("olleh");
@@ -108,7 +108,7 @@ describe("About Functions", function() {
   it("should return the dog age equivalent of a human age (1 year for Fido = 7 years for you)", () => {
     function puppyCalculator(humanAge) {
       // was empty
-      return Math.ceil(humanAge / 7);
+      return Math.round(humanAge / 7);
     }
 
     expect(puppyCalculator(35)).toBe(5);

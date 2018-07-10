@@ -67,6 +67,9 @@ describe("Exercise 12 candidate filtering", () => {
   });
 
   it("should return all candidates with no filters", () => {
+    // The extra test that was added
+    // Useful to test the expected outcome when no filters are supplied
+    // In this case it should just return the original data set array
     const candidates = filter(data, []);
 
     expect(candidates.length).toBe(8);

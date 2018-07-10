@@ -1,6 +1,6 @@
 # and-workshop-corejs-solutions
 
-## My solutions to the and-workshop-corejs tests
+## My solutions to the [and-digital-workshop-corejs](https://github.com/and-digital/and-workshop-corejs) tests
 
 ## Getting started
 

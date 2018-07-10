@@ -1,6 +1,6 @@
 describe("About objects", () => {
   it("shuld return using property access", () => {
-    //RULE: USE key access
+    //RULE: USE property access
     const obj = {
       name: "Julian",
       lastname: "Brown",
@@ -13,7 +13,7 @@ describe("About objects", () => {
   });
 
   it("should return using key access", () => {
-    //RULE: USE property access
+    //RULE: USE key access
     const obj = {
       name: "Julian",
       lastname: "Brown",

@@ -15,20 +15,17 @@ const fs = require("fs");
 
 const file = "./todo.txt"; // check todo.txt for the appended "watch GOT"
 
-let stuff = "";
-
 const appendFile = function(err, todoList) {
   if (err) return false;
 
   todoList = todoList + "\n watch GOT";
-  stuff += todoList;
   fs.writeFile(file, todoList, notify);
-  return stuff;
+  return todoList;
 };
 
 const notify = function(err) {
   if (err) return false;
-
+  // currently does nothing but return true, here you could have some form of logging or other post file write logic
   return true;
 };
 
@@ -36,18 +33,18 @@ const notify = function(err) {
 
 describe("callback exercise", () => {
   it("should append watch GOT when calling appendFile", () => {
-    expect(appendFile(null, "")).toEqual("\n watch GOT");
+    expect(appendFile(null, "")).toEqual("\n watch GOT"); // expects the empty string provided to be appeneded with '\n watch GOT' and returned
   });
 
   it("should return false if there is an error when appendFile is called", () => {
-    expect(appendFile("an error", "")).toBe(false);
+    expect(appendFile("an error", "")).toBe(false); // if an error is provided then expect the function to return false first thing
   });
 
   it("should return true if there is no error when notify called", () => {
-    expect(notify(null)).toBe(true);
+    expect(notify(null)).toBe(true); // expect notify to successfully notify (currently it does nothing) when there are no errors
   });
 
   it("should return false if there is an error when the notify is called", () => {
-    expect(notify("an error")).toBe(false);
+    expect(notify("an error")).toBe(false); // opposite of above, expect notify to return false first thing if an error was supplied
   });
 });

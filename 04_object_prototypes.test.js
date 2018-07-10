@@ -11,10 +11,11 @@ describe("About object prototypes", () => {
 
   String.prototype.capitalize = function() {
     // was nothing
-    let stringArr = [...this];
-    stringArr[0] = stringArr[0].toUpperCase();
-    const returnString = stringArr.join("");
-    return returnString;
+    let stringArr = [...this]; // spreading the string inputted into a char array
+    stringArr[0] = stringArr[0].toUpperCase(); // capitalising the first character
+    const returnString = stringArr.join(""); // joining up the chars back into a string
+    return returnString; // returning the newly created capitalised string
+    // Note: 'this' (the string provided to the function) was never changed (mutated)
   };
 
   it("should return a capitalised string", () => {
